@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Título del sitio{% endblock %}</title>
+    <!-- Aquí puedes incluir enlaces a tus archivos CSS, JavaScript, etc. -->
+</head>
+<body>
+    <header>
+        <!-- Aquí puedes colocar la barra de navegación, el logo, etc. -->
+        <nav>
+            <!-- Enlaces de navegación -->
+            <a href="/">Inicio</a>
+            <a href="/about/">Acerca de</a>
+            <!-- Otros enlaces de navegación -->
+        </nav>
+    </header>
+
+    <main>
+        <!-- Aquí irá el contenido específico de cada página -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Aquí puedes colocar el pie de página, información de contacto, etc. -->
+    </footer>
+</body>
+</html>

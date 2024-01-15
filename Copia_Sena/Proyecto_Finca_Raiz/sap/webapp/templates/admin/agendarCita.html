@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--Img Logo-->
+    <link rel="shortcut icon" href="../static/imagenes/logo.png" type="image/x-icon">
+    <!--Iconos-->
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --padding-container: 100px 0;
+  --color-title: #001A49;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--padding-container);
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 800px;
+  position: relative;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  color: #fff;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../static/imagenes/carousel_01.jpg');
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+  z-index: -1;
+}
+
+/* Nav */
+
+.nav {
+  --padding-container: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav_title {
+  font-weight: 300;
+}
+
+.nav_link {
+  margin-left: auto;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 2em;
+}
+
+.nav_items {
+  list-style: none;
+}
+
+.nav_links {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav_menu {
+  margin-left: auto;
+  cursor: pointer;
+  display: none;
+}
+
+.nav_img {
+  display: block;
+  width: 30px;
+}
+
+
+.nav_close {
+  display: var(--show, none);
+}
+
+/* Head container */
+
+.head_container {
+  max-width: 800px;
+  --padding-container: 0;
+  display: grid;
+  grid-auto-rows: max-content;
+  align-content: center;
+  gap: 1em;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.head_title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.head_description {
+  margin-bottom: 20px;
+  font-size: large;
+}
+
+.button {
+    display: inline-block;
+    background-color: #2091F9;
+    justify-self: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 30px;
+    border-radius: 32px;
+}
+
+/*Pie de Pagina*/
+.pie-pagina{
+  width: 100%;
+  background-color: #0a141d;
+}
+.pie-pagina .grupo-1{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap:50px;
+  padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box_footer figure{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pie-pagina .grupo-1 .box_footer figure img{
+  width: 250px;
+}
+.pie-pagina .grupo-1 .box_footer h2{
+  color: #fff;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+.pie-pagina .grupo-1 .box_footer p{
+  color: #efefef;
+  margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .red-social a{
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  color: #000000;
+  margin-right: 10px;
+  background-color: #0d2033;
+  text-align: center;
+  transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+  color: aqua;
+}
+.pie-pagina .grupo-2{
+  background-color: #0a1a2a;
+  padding: 15px 10px;
+  text-align: center;
+  color: #fff;
+}
+.pie-pagina .grupo-2 small{
+  font-size: 15px;
+}
+@media screen and (max-width:800px){
+  .pie-pagina .grupo-1{
+      width: 90%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap:30px;
+      padding: 35px 0px;
+  }
+}
+  </style>
+</head>
+<body>
+    <!--Header-->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav_logo">
+                <h2 class="nav_title">Finca Raiz</h2>
+            </div>
+
+            <ul class="nav_link nav_link--menu">
+                <li class="nav_items">
+                    <a href="{% url 'vistaAdmin' %}" class="nav_links">Inicio</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="nav_links">Acerca de</a>
+                </li>
+                <li class="nav_items">
+                    <a href="#" class="nav_links">Contacto</a>
+                </li>
+                <li class="nav_items">
+                    <a href="{% url 'index' %}" class="nav_links">Agregar</a>
+                </li>
+
+                <li class="nav_items">
+                    <a href="{% url 'bienvenido' %}" class="nav_links">Cerrar Sesion</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="head_container container">
+            <h1 class="head_title">¡Bienvenido a nuestra página de ventas!</h1>
+            <p class="head_description">Elige las mejores comodidades para usted y que mejor que eligiendo.
+            Desde acogedoras casas hasta lujosas mansiones. ¡Explora nuestras ofertas y no dudes en contactarnos para obtener más información!</p>
+            <a href="#" class="button" id="liveToastBtn">Comienza ahora</a>
+        </section>
+    </header>
+  <main>
+    <h1>Administración de Citas</h1>
+
+        <div>
+            Número de Citas Agendadas: {{no_cita}}
+        </div>
+
+        <div>
+            <table class="table table-dark table-striped mt-3">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>email</th>
+                    <th>Fecha Cita</th>
+                    <th>Inmueble</th>
+                    <th> Borrar </th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for cita in citas %}
+                    <tr>
+                        <td>{{cita.id}}</td>
+                        <td>{{cita.nombre}}</td>
+                        <td>{{cita.apellido}}</td>
+                        <td>{{cita.email}}</td>
+                        <td>{{cita.fecha_cita}}</td>
+                        <td>{{cita.finca.inmueble}} - {{cita.finca.precio}} - {{cita.finca.direccion}}</td>
+                        <td><a class="btn btn-outline-danger" href="borrarcita/{{cita.id}}" role="button">Borrar</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+  </main>
+
+      <!--Pie de Pagina-->
+      <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box_footer">
+                <figure>
+                    <a href="#">
+                        <img src="../static/imagenes/logo.png" alt="Logo de Finca Raiz">
+                    </a>
+                </figure>
+            </div>
+            <div class="box_footer">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Somos una empresa dedicada a brindar soluciones integrales en el mercado de finca raíz.</p>
+                <p>¡Contáctanos para saber más sobre cómo podemos ayudarte a encontrar tu hogar ideal!</p>
+            </div>
+            <div class="box_footer">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2023 <b>Finca Raiz</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

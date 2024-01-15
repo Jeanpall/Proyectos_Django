@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvendido</title>
+</head>
+    <body>
+        <h1>Administracion de personas</h1>
+
+        <div>
+            Número de personas: {{no_personas}}
+        </div>
+
+        <div>
+              <a href="nueva_persona">Agregar Persona</a>
+        </div>
+
+        <div>
+            <table border="1" bgcolor="gray">
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th> Detalles </th>
+                    <th> Editar </th>
+                    <th> Borrar </th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for persona in personas %}
+                    <tr>
+                        <td>{{persona.id}}</td>
+                        <td>{{persona.nombre}} {{persona.apellido}}</td>
+                        <td>{{persona.email}}</td>
+                        <td><a href="detalle_persona/{{persona.id}}">Ver detalle</a></td>
+                        <td><a href="editar_persona/{{persona.id}}">Editar</a></td>
+                        <td><a href="borrar_persona/{{persona.id}}">Borrar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+            <h1>Administracion de Domicilios</h1>
+
+        <div>
+            Número de Domicilio: {{no_domicilios}}
+        </div>
+
+        <div>
+              <a href="nuevo_domicilio">Agregar Domicilio</a>
+        </div>
+
+        <div>
+            <table border="1" bgcolor="gray">
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Calle</th>
+                    <th>N° Calle</th>
+                    <th> Pais </th>
+                    <th>Detalles</th>
+                    <th>Editar</th>
+                    <th> Borrar </th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for domicilio in domicilios %}
+                    <tr>
+                        <td>{{domicilio.id}}</td>
+                        <td>{{domicilio.calle}}</td>
+                        <td> {{domicilio.no_calle}}</td>
+                        <td>{{domicilio.pais}}</td>
+                        <td><a href="detalle_domicilio/{{domicilio.id}}">Ver detalle</a></td>
+                        <td><a href="editar_domicilio/{{domicilio.id}}">Editar</a></td>
+                        <td><a href="borrar_domicilio/{{domicilio.id}}">Borrar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
